@@ -1,19 +1,21 @@
-import React from 'react';
-import logo from './logo.png';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Routes from './app/router/routes';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  return (
-      <DndProvider backend={HTML5Backend}>
-        <Router>
-          <Routes />
-        </Router>
-      </DndProvider>
-  );
+
+
+    let searchQuery = useState("")
+
+    const search = () => {
+
+    }
+
+    return (
+        <div>
+            <input type={"text"}/>
+            <button onClick={search}>Search</button>
+        </div>
+    );
 }
 
 export default App;
