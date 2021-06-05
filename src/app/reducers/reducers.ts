@@ -31,7 +31,7 @@ export const search = createSlice({
     }
 })
 
-export const newSearch = app.actions
+export const newSearch = search.actions
 
 export const searchReducer = search.reducer
 
@@ -47,6 +47,6 @@ export const view = createSlice({
     }
 })
 
-export const viewMovie = app.actions
+export const viewMovie = view.actions
 
 export const viewReducer = view.reducer
