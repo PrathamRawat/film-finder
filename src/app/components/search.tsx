@@ -1,6 +1,6 @@
 import React, {createRef} from "react";
 import {useDispatch} from "react-redux";
-import {SEARCH} from "../reducers/actionTypes";
+import {SEARCH, SEARCH_MODE} from "../reducers/actionTypes";
 
 const Search: React.FC = props => {
 
@@ -9,6 +9,9 @@ const Search: React.FC = props => {
 
     const search = () => {
         if(queryRef.current != null) {
+            dispatch({
+                type: SEARCH_MODE,
+            })
             dispatch({
                 type: SEARCH,
                 payload: queryRef.current.value,
