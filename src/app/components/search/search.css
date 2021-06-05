@@ -1,0 +1,43 @@
+
+.searchContainer {
+    display: flex;
+    position: relative;
+
+    justify-content: center;
+
+    margin-top: 100px;
+    left: auto;
+    right: auto;
+}
+
+.searchBar {
+    display: block;
+
+    font-size: 20px;
+
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+
+    padding: 3px;
+    width: 60%;
+    margin-right: 50px;
+}
+
+.searchButton {
+    display: block;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 18px;
+    padding: 5px;
+    width: 100px;
+
+    background-color: maroon;
+    color: white;
+}
+
+.searchButton:hover {
+    background-color: brown;
+}
