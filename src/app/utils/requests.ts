@@ -16,6 +16,7 @@ export const getMovieById = async (id: string) => {
         params: {
             apikey: API_KEY,
             i: id,
+            type: "movie",
         }
     })
     return response.data
@@ -27,6 +28,7 @@ export const getSearchResults = async (query: string, pageNumber: number) => {
             apikey: API_KEY,
             s: query,
             page: pageNumber,
+            type: "movie",
         }
     })
     return response.data
