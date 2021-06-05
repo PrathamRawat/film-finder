@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {createRef, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import {getMode, getQuery} from "../reducers/selectors";
-import {searchResults} from "../utils/requests";
+import {countSearchResults, isQueryValid, searchResults} from "../utils/requests";
 import SearchResultTile from "./searchResultTile";
 
 const SearchResults: React.FC = props => {
@@ -9,35 +9,77 @@ const SearchResults: React.FC = props => {
     const query = useSelector(getQuery)
     const mode = useSelector(getMode)
 
+    const rowsPerPageRef = createRef<HTMLSelectElement>()
+
     const [results, setResults] = useState(new Array<JSX.Element>())
-    const [toDisplay, setToDisplay] = useState(20)
-    const [pageNumber, setPageNumber] = useState(2)
+    const [toDisplay, setToDisplay] = useState(10)
+    const [pageNumber, setPageNumber] = useState(1)
 
-
-    const [isResultsMounted, setResultsMounted] = useState(true)
+    const [numResults, setNumResults] = useState(0)
+    const [isErrored, setErrored] = useState(false)
 
     useEffect(() => {
-        if(query !== "") {
-            searchResults(query, pageNumber, toDisplay).then(
-                r => {
-                    if(isResultsMounted) setResults(r.map((result: {}) => <SearchResultTile children={{result: result}}/>))
+        if(query !== "" && mode === "search") {
+            isQueryValid(query).then(
+                valid => {
+                    if(valid === "True") {
+                        setErrored(false)
+                        countSearchResults(query).then(
+                            num => {
+                                setNumResults(num)
+                            }
+                        )
+                        searchResults(query, pageNumber, toDisplay).then(
+                            r => {
+                                setResults(r.map((result: {}) => <SearchResultTile children={{result: result}}/>))
+                            }
+                        )
+                    } else {
+                        setErrored(true)
+                    }
                 }
             )
         }
-        return () => setResultsMounted(false)
     }, [query, toDisplay, pageNumber])
 
     const incrementPage = () => {
-
+        if(pageNumber * toDisplay < numResults) setPageNumber(pageNumber + 1)
     }
 
     const decrementPage = () => {
-
+        if(pageNumber <= 1) setPageNumber(pageNumber - 1)
     }
 
+    const updateRows = () => {
+        if(rowsPerPageRef.current !== null) setToDisplay(parseInt(rowsPerPageRef.current.value))
+    }
+
+    // If the app is in view mode, and viewing a particular film
+    if (mode === "view") return (<div/>)
+    // If the user has not entered a query yet
+    if (query === "") return (
+        <div>
+            The world's films at your fingertips.
+        </div>
+    )
+    // If the user's query had no search results
+    if (isErrored) return (
+        <div>
+            Your search query contained no results.
+        </div>
+    )
+    // If the user's query has been successful
     return (
         <div>
-            { mode === "search" && query !== "" && results.map(a => a) }
+            { results.map(a => a) }
+            <button onClick={decrementPage} disabled={pageNumber <= 1}>Previous Page</button>
+            <button onClick={incrementPage} disabled={pageNumber * toDisplay > numResults}>Next Page</button>
+            Rows per Page <select ref={rowsPerPageRef} onChange={updateRows}>
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+            </select>
+            Your search contained { numResults } results.
         </div>
     );
 }
