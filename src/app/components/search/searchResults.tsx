@@ -58,28 +58,37 @@ const SearchResults: React.FC = props => {
     if (mode === "view") return (<div/>)
     // If the user has not entered a query yet
     if (query === "") return (
-        <div>
+        <div className={"searchMessaging"}>
             The world's films at your fingertips.
         </div>
     )
     // If the user's query had no search results
     if (isErrored) return (
-        <div>
+        <div className={"searchMessaging"}>
             Your search query contained no results.
         </div>
     )
     // If the user's query has been successful
     return (
         <div>
-            { results.map(a => a) }
-            <button onClick={decrementPage} disabled={pageNumber <= 1}>Previous Page</button>
-            <button onClick={incrementPage} disabled={pageNumber * toDisplay > numResults}>Next Page</button>
-            Rows per Page <select ref={rowsPerPageRef} onChange={updateRows}>
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-                <option value={50}>50</option>
-            </select>
-            Your search contained { numResults } results.
+            <div className={"resultContainer"}>
+                { results.map(a => a) }
+            </div>
+            <div className={"searchInfo"}>
+                Your search contained { numResults } results.
+            </div>
+            <div className={"pageNavigation"}>
+                <button onClick={decrementPage} disabled={pageNumber <= 1} className={"pageButton"}>Prev Page</button>
+                <button onClick={incrementPage} disabled={pageNumber * toDisplay > numResults} className={"pageButton"}>Next Page</button>
+            </div>
+            <div className={"filterContainer"}>
+                Rows per Page
+                <select ref={rowsPerPageRef} onChange={updateRows} className={"displaySelector"}>
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={50}>50</option>
+                </select>
+            </div>
         </div>
     );
 }
