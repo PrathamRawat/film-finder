@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {VIEW, VIEW_MODE} from "../reducers/actionTypes";
-import {SearchResult} from "../utils/requests";
+import {VIEW, VIEW_MODE} from "../../reducers/actionTypes";
+import {SearchResult} from "../../utils/requests";
 
 const SearchResultTile: React.FC = (props) => {
 

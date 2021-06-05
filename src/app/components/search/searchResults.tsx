@@ -1,7 +1,7 @@
 import React, {createRef, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {getMode, getQuery} from "../reducers/selectors";
-import {countSearchResults, isQueryValid, searchResults} from "../utils/requests";
+import {getMode, getQuery} from "../../reducers/selectors";
+import {countSearchResults, isQueryValid, searchResults} from "../../utils/requests";
 import SearchResultTile from "./searchResultTile";
 
 const SearchResults: React.FC = props => {

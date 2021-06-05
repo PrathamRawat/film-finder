@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {getMovieById} from "../utils/requests";
+import {getMovieById} from "../../utils/requests";
 import {useSelector} from "react-redux";
-import {getId, getMode} from "../reducers/selectors";
-import loading from "./images/loading.gif"
+import {getId, getMode} from "../../reducers/selectors";
+import loading from "../images/loading.gif"
 
 const View: React.FC = (props) => {
 

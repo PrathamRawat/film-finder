@@ -1,6 +1,6 @@
 import React, {createRef} from "react";
 import {useDispatch} from "react-redux";
-import {SEARCH, SEARCH_MODE} from "../reducers/actionTypes";
+import {SEARCH, SEARCH_MODE} from "../../reducers/actionTypes";
 
 const Search: React.FC = props => {
 
