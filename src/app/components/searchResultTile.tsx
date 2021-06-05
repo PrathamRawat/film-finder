@@ -7,9 +7,6 @@ const SearchResultTile: React.FC = (props) => {
 
     // @ts-ignore
     const result: SearchResult = props.children.result;
-
-    console.log(result)
-
     const dispatch = useDispatch()
 
     const view = () => {

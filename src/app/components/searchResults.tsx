@@ -47,7 +47,7 @@ const SearchResults: React.FC = props => {
     }
 
     const decrementPage = () => {
-        if(pageNumber <= 1) setPageNumber(pageNumber - 1)
+        if(pageNumber > 1) setPageNumber(pageNumber - 1)
     }
 
     const updateRows = () => {
