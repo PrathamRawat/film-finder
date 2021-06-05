@@ -36,7 +36,7 @@ export const getSearchResults = async (query: string, pageNumber: number) => {
 export const searchResults = async (query: string, pageNumber: number, rowsPerPage: number) => {
     let output: never[] = []
     for (let i = 1; i <= rowsPerPage / 10; i++) {
-        output = output.concat((await getSearchResults(query, (rowsPerPage / 10) * (pageNumber + i))).Search)
+        output = output.concat((await getSearchResults(query, (((pageNumber - 1) * (rowsPerPage / 10)) + i))).Search)
     }
     return output
 }
