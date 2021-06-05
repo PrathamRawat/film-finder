@@ -1,12 +1,34 @@
-import React from "react";
+import React, {PropsWithChildren} from "react";
+import {useDispatch} from "react-redux";
+import {VIEW, VIEW_MODE} from "../reducers/actionTypes";
+import {SearchResult} from "../utils/requests";
 
-const SearchResultTile: React.FC = () => {
+const SearchResultTile: React.FC = (props) => {
+
+    // @ts-ignore
+    const result: SearchResult = props.children.result;
+
+    console.log(result)
+
+    const dispatch = useDispatch()
+
+    const view = () => {
+        // Sets the ID to view
+        dispatch({
+            type: VIEW,
+            payload: result,
+        })
+        // Sets the app state to view
+        dispatch({
+            type: VIEW_MODE,
+        })
+    }
 
     return (
-        <div>
-
+        <div onClick={view}>
+            {result.Title}
         </div>
     );
 }
 
-export default  SearchResultTile;
+export default SearchResultTile;
