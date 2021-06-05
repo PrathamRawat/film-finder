@@ -1,4 +1,4 @@
-import {Action} from "@reduxjs/toolkit";
+import {Action, Reducer} from "@reduxjs/toolkit";
 import {SEARCH, SEARCH_MODE, VIEW, VIEW_MODE} from "./actionTypes";
 
 export interface RootState {
@@ -17,7 +17,7 @@ export const initialState: RootState = {
     id: "",
 }
 
-export const rootReducer = (state = initialState, action: RootAction) => {
+export const rootReducer: Reducer<RootState, RootAction> = (state = initialState, action: RootAction) => {
     switch (action.type) {
         case SEARCH_MODE:
             return {
