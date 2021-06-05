@@ -21,9 +21,11 @@ const SearchResultTile: React.FC = (props) => {
         })
     }
 
+    if(result === undefined) return (<div/>)
+
     return (
-        <div onClick={view}>
-            {result.Title}
+        <div onClick={view} className={"searchResult"}>
+            { result.Title }
         </div>
     );
 }

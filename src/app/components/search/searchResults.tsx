@@ -51,7 +51,10 @@ const SearchResults: React.FC = props => {
     }
 
     const updateRows = () => {
-        if(rowsPerPageRef.current !== null) setToDisplay(parseInt(rowsPerPageRef.current.value))
+        if(rowsPerPageRef.current !== null) {
+            setToDisplay(parseInt(rowsPerPageRef.current.value))
+            setPageNumber(1)
+        }
     }
 
     // If the app is in view mode, and viewing a particular film
