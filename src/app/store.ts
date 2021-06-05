@@ -1,11 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit'
-import {appReducer, searchReducer, viewReducer} from "./reducers/reducers";
+import {createStore} from '@reduxjs/toolkit'
+import {RootAction, rootReducer, RootState} from "./reducers/reducers";
 
-export const store = configureStore({
-    reducer: {
-        app: appReducer,
-        view: viewReducer,
-        search: searchReducer,
-    },
-})
+export default createStore<RootState, RootAction, unknown, unknown>(rootReducer)
 
