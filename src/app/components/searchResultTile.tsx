@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from "react";
+import React from "react";
 import {useDispatch} from "react-redux";
 import {VIEW, VIEW_MODE} from "../reducers/actionTypes";
 import {SearchResult} from "../utils/requests";
@@ -13,7 +13,7 @@ const SearchResultTile: React.FC = (props) => {
         // Sets the ID to view
         dispatch({
             type: VIEW,
-            payload: result,
+            payload: result.imdbID,
         })
         // Sets the app state to view
         dispatch({
