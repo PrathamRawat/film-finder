@@ -40,3 +40,13 @@ export const searchResults = async (query: string, pageNumber: number, rowsPerPa
     }
     return output
 }
+
+export const countSearchResults = async (query: string) => {
+    let response = await getSearchResults(query, 1)
+    return response.totalResults
+}
+
+export const isQueryValid = async (query: string) => {
+    let response = await getSearchResults(query, 1)
+    return response.Response
+}
