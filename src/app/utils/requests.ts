@@ -2,7 +2,6 @@ import {API_KEY} from "../constants/apiConstants";
 import axios from "axios";
 
 const URL = "http://www.omdbapi.com/";
-const POSTER_URL = "http://img.omdbapi.com/";
 
 export interface SearchResult {
     Title: string,
@@ -12,14 +11,14 @@ export interface SearchResult {
     poster: string,
 }
 
-export const getPoster = async (title: string) => {
-    let response = (await axios.get(POSTER_URL, {
+export const getMovieById = async (id: string) => {
+    let response = await axios.get(URL, {
         params: {
             apikey: API_KEY,
-            t: title,
+            i: id,
         }
-    })).data
-    return response
+    })
+    return response.data
 }
 
 export const getSearchResults = async (query: string, pageNumber: number) => {
