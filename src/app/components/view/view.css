@@ -1,0 +1,54 @@
+
+.movieTitle {
+    display: block;
+    position: relative;
+
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+
+    color: maroon;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.poster {
+    display: block;
+    position: relative;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+
+    width: 300px;
+}
+
+.plot {
+    display: block;
+    position: relative;
+
+    color: maroon;
+
+    font-size: 18px;
+    text-align: justify;
+    text-align-last: center;
+
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.movieDetail {
+    position: relative;
+
+    color: black;
+
+    text-align: center;
+}
+
+.emphasis {
+    color: maroon;
+}
