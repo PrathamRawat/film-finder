@@ -1,7 +1,7 @@
 import {API_KEY} from "../constants/apiConstants";
 import axios from "axios";
 
-const URL = "http://www.omdbapi.com/";
+const URL = "https://www.omdbapi.com/";
 
 export interface SearchResult {
     Title: string,
