@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/film-finder/static/css/main.f9b5adbf.chunk.css",
-    "main.js": "/film-finder/static/js/main.de6a654a.chunk.js",
-    "main.js.map": "/film-finder/static/js/main.de6a654a.chunk.js.map",
+    "main.js": "/film-finder/static/js/main.14c13266.chunk.js",
+    "main.js.map": "/film-finder/static/js/main.14c13266.chunk.js.map",
     "runtime-main.js": "/film-finder/static/js/runtime-main.d9078b34.js",
     "runtime-main.js.map": "/film-finder/static/js/runtime-main.d9078b34.js.map",
     "static/js/2.b8290654.chunk.js": "/film-finder/static/js/2.b8290654.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.d9078b34.js",
     "static/js/2.b8290654.chunk.js",
     "static/css/main.f9b5adbf.chunk.css",
-    "static/js/main.de6a654a.chunk.js"
+    "static/js/main.14c13266.chunk.js"
   ]
 }
